@@ -99,10 +99,10 @@
     "target": "255612130873",
     "delay": 6
   },
-  "mode": "whatsapp",//select your mode whatsapp or telegram 
+  "mode": "whatsapp",
   "telegram": {
-    "botToken": "",//your bot token 
-    "ownerId": "",//your telegram owner id
+    "botToken": "", 
+    "ownerId": "", 
     "pairCode": "BIGTECHS"
   }
 }
