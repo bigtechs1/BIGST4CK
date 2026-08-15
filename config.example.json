@@ -99,10 +99,10 @@
     "target": "255612130873",
     "delay": 6
   },
-  "mode": "whatsapp",
+  "mode": "whatsapp", //select your mode whatsapp or telegram 
   "telegram": {
-    "botToken": "8363363748:AAFG7nwJL3B5LSo487Fap33F55_O6AnXKrs",
-    "ownerId": "8188446621",
-    "pairCode": "MICKDADY"
+    "botToken": "", //your bot token 
+    "ownerId": "", //your telegram owner id
+    "pairCode": "BIGTECHS"
   }
 }
