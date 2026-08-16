@@ -535,3 +535,68 @@ or browse the [Commands](#commands) section.
 **All libraries are open-source and free to use.** 🚀
 
 ---
+
+## Dependencies
+
+### Core Dependencies
+
+| Package | Version | Description |
+|---------|---------|-------------|
+| `@itsliaaa/baileys` | ^7.0.0-rc11 | Enhanced Baileys WhatsApp API |
+| `@whiskeysockets/baileys` | ^v7.0.0-rc11 | Original WhatsApp Web API |
+| `axios` | ^1.8.4 | HTTP client for API requests |
+| `chalk` | ^4.1.2 | Terminal styling |
+| `dotenv` | ^16.4.5 | Environment variable management |
+
+### Media Processing
+
+| Package | Version | Description |
+|---------|---------|-------------|
+| `fluent-ffmpeg` | ^2.1.3 | Media processing and conversion |
+| `sharp` | ^0.32.6 | High-performance image processing |
+| `ffmpeg` | ^0.0.4 | FFmpeg wrapper |
+
+### Utilities
+
+| Package | Version | Description |
+|---------|---------|-------------|
+| `fs-extra` | ^11.2.0 | Extended file system operations |
+| `moment-timezone` | ^0.5.43 | Timezone handling |
+| `node-cache` | ^5.1.2 | In-memory caching |
+| `pino` | ^8.21.0 | Fast logging |
+| `pino-pretty` | ^10.3.1 | Pretty log formatting |
+
+### Downloaders & Scrapers
+
+| Package | Version | Description |
+|---------|---------|-------------|
+| `yt-search` | ^2.13.1 | YouTube search |
+| `ytdl-core` | ^4.11.5 | YouTube video downloading |
+| `ruhend-scraper` | ^8.3.0 | Media downloader (Instagram, TikTok) |
+
+### QR & Terminal
+
+| Package | Version | Description |
+|---------|---------|-------------|
+| `qrcode` | ^1.5.4 | QR code generation |
+| `qrcode-terminal` | ^0.12.0 | QR code display in terminal |
+
+### Optional Dependencies
+
+| Package | Version | Description |
+|---------|---------|-------------|
+| `gifted-btns` | ^1.0.2 | Interactive buttons (fallback) |
+
+### Install All Dependencies
+
+```bash
+npm install
+```
+
+### Update Dependencies
+
+```bash
+npm update
+```
+
+---
