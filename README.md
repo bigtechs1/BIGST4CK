@@ -238,5 +238,6 @@ GIPHY_API_KEY=your_key
 ACR_ACCESS_KEY=your_key
 ACR_ACCESS_SECRET=your_secret
 TELEGRAM_BOT_TOKEN=your_token   # optional
+```
 
 ---
