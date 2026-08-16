@@ -464,3 +464,11 @@ For a full list of commands, type:
 or browse the [Commands](#commands) section.
 
 ---
+
+## Screenshots
+
+### Main Menu
+
+![Main Menu](https://files.catbox.moe/cbbepj.png)
+
+---
