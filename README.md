@@ -675,3 +675,9 @@ Contributions are welcome! Here's how you can help improve the bot.
 | **bigmanjtech™** | Founder & Lead Developer |
 | **bigtechs1** | Contributor |
 | **bigtechs2** | Contributor |
+
+---
+
+## License
+
+This project is licensed under the **MIT License** – see the [LICENSE](LICENSE) file for details.
