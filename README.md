@@ -667,3 +667,11 @@ Contributions are welcome! Here's how you can help improve the bot.
 ---
 > Thank you for contributing to BIGST4CK! 🚀
 ---
+
+## Contributors
+
+| Name | Role |
+|------|------|
+| **bigmanjtech™** | Founder & Lead Developer |
+| **bigtechs1** | Contributor |
+| **bigtechs2** | Contributor |
