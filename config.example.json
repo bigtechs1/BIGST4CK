@@ -103,6 +103,6 @@
   "telegram": {
     "botToken": "",
     "ownerId": "", 
-    "pairCode": "BIGTECHS" //&
+    "pairCode": "BIGTECHS"
   }
 }
