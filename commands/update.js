@@ -9,7 +9,10 @@ const axios = require('axios');
 const chalk = require('chalk');
 
 const FOOTER = config.msg.footer || `© ${config.bot.name}`;
-const MAIN_REPO = 'https://github.com/brightsonnjegite-sudo/BIGMANJ-BOT-V3';
+const REPO_OWNER = 'bigtechs1';
+const REPO_NAME = 'BIGST4CK';
+const MAIN_REPO = `https://github.com/${REPO_OWNER}/${REPO_NAME}`;
+const DEFAULT_BRANCH = 'main';
 
 // ─── Helper: extract phone number from JID ──────────────
 function extractPhoneNumber(jid) {
@@ -52,9 +55,7 @@ module.exports = {
         const prefix = ctx.used.prefix || '.';
 
         // ─── Owner check ──────────────────────────────
-        const senderNumber = extractPhoneNumber(senderId);
-        const isOwner = isOwnerOrCo(senderId) || msg.key.fromMe;
-        if (!isOwner) {
+        if (!isOwnerOrCo(senderId) && !msg.key.fromMe) {
             await sock.sendMessage(chatId, {
                 text: `» ${config.msg.owner || 'This command is restricted to the bot owner.'}`
             }, { quoted: msg });
@@ -70,7 +71,7 @@ module.exports = {
                 const currentVersion = packageJson.version || '3.0.5';
                 let commitInfo = '';
                 try {
-                    const apiUrl = 'https://api.github.com/repos/brightsonnjegite-sudo/BIGMANJ-BOT-V3/commits/main';
+                    const apiUrl = `https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}/commits/${DEFAULT_BRANCH}`;
                     const response = await axios.get(apiUrl, { timeout: 5000 });
                     const latest = response.data;
                     commitInfo = `Latest commit: ${latest.commit.message.slice(0, 50)}...\nDate: ${new Date(latest.commit.author.date).toLocaleString()}`;
@@ -87,7 +88,7 @@ module.exports = {
 
         // ─── Update subcommand ────────────────────────────
         // Determine update source
-        let updateUrl = `${MAIN_REPO}/archive/refs/heads/main.zip`;
+        let updateUrl = `${MAIN_REPO}/archive/refs/heads/${DEFAULT_BRANCH}.zip`;
         if (sub === 'branch' && args[1]) {
             const branch = args[1];
             updateUrl = `${MAIN_REPO}/archive/refs/heads/${branch}.zip`;
@@ -100,7 +101,7 @@ module.exports = {
             const usage =
 `» Update Command
 »
-› ${prefix}update             - Update from main branch
+› ${prefix}update             - Update from ${DEFAULT_BRANCH} branch
 › ${prefix}update branch <name> - Update from specific branch
 › ${prefix}update <url>       - Update from custom ZIP URL
 › ${prefix}version            - Check current version
@@ -118,7 +119,7 @@ ${FOOTER}`;
         cycleReactions(sock, startMsg, ['⏳', '🔄', '♻️'], 1500).catch(console.error);
 
         const tmpDir = path.join(process.cwd(), 'temp_update');
-        const zipPath = path.join(tmpDir, 'bigmanj_update.zip');
+        const zipPath = path.join(tmpDir, 'update.zip');
         const extractPath = path.join(tmpDir, 'extracted');
 
         try {
@@ -185,7 +186,7 @@ ${FOOTER}`;
                 const shouldProtect = protectedItems.some(protected =>
                     file === protected || file.startsWith(protected + '/')
                 );
-                if (!shouldProtect && file !== 'BIGMANJ-BOT-V3-main') {
+                if (!shouldProtect && file !== `${REPO_NAME}-${DEFAULT_BRANCH}` && file !== `${REPO_NAME}-master`) {
                     const src = path.join(rootFolder, file);
                     const dest = path.join(process.cwd(), file);
                     if (fs.existsSync(src)) {
