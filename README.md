@@ -399,3 +399,68 @@ module.exports = {
 - Check the permissions object in the command file.
 
 ---
+
+## Usage
+
+### Start the Bot
+
+| Command | Description |
+|---------|-------------|
+| `npm start` | Start the bot normally |
+| `npm run start:optimized` | Start with memory optimization |
+| `npm run start:stable` | Start with stable configuration |
+| `npm run start:performance` | Start with performance tuning |
+| `npm run start:low-ram` | Start with low RAM usage |
+
+### Development Mode
+
+| Command | Description |
+|---------|-------------|
+| `npm run dev` | Start in development mode |
+
+### With PM2 (Production)
+
+```bash
+npm run start:pm2
+pm2 logs
+```
+
+### Available Scripts
+
+| Command | Description |
+|---------|-------------|
+| `npm start` | Start the bot |
+| `npm run start:optimized` | Optimized memory usage |
+| `npm run start:stable` | Stable configuration |
+| `npm run start:performance` | Performance tuning |
+| `npm run start:low-ram` | Low RAM usage |
+| `npm run cleanup` | Clean temporary files |
+| `npm run reset-session` | Reset WhatsApp session |
+| `npm run start:clean` | Cleanup + start optimized |
+| `npm run start:fresh` | Reset session + start optimized |
+
+### After Starting
+
+- Scan the QR code or enter the pairing code.
+- Once connected, you will see `✅ BIGST4CK Online!` in the terminal.
+- Test the bot with `.menu` or `.ping`.
+
+### Using Commands
+
+All commands start with the prefix `.` (default). Type:
+
+```
+.menu          – Open interactive menu
+.ping          – Check bot latency
+.owner         – Contact the owner
+```
+
+For a full list of commands, type:
+
+```
+.menu
+```
+
+or browse the [Commands](#commands) section.
+
+---
