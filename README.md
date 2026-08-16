@@ -192,3 +192,51 @@ Before installing and running the bot, make sure you have the following installe
 
 - Once connected, you will see `✅ BIGST4CK Online!` in the terminal
 - Test the bot with commands like `.menu` or `.ping`
+
+---
+
+## Configuration
+
+The bot uses two files:
+
+- `config.json` – main settings (non‑sensitive)
+- `.env` – API keys, tokens, secrets (never commit)
+
+### config.json
+
+Key fields:
+
+| Field | Description |
+|-------|-------------|
+| `bot.name` | Bot display name |
+| `bot.phoneNumber` | Bot's phone number (reference) |
+| `bot.thumbnail` | Profile picture URL |
+| `bot.groupLink` | Group invite link |
+| `bot.channellink` | WhatsApp channel link |
+| `msg.footer` | Global footer text |
+| `owner.id` | Owner's phone (no `+`) |
+| `owner.co` | Array of co‑owners |
+| `system.prefix` | Command prefix (e.g., `.`) |
+| `system.usePairingCode` | true/false |
+| `system.customPairingCode` | Your pairing code |
+| `system.timeZone` | e.g., `Africa/Dar_es_Salaam` |
+| `api.*` | Giphy, ACRCloud keys |
+| `pterodactyl.*` | Panel URL, API key, etc. |
+
+For full structure, see `config.example.json`.
+
+### .env
+
+Sensitive data – copy `.env.example` to `.env` and fill in:
+
+```env
+BOT_NAME=BIGST4CK
+PREFIX=.
+OWNER_NUMBER=your_number
+CATBOX_USERHASH=your_hash
+GIPHY_API_KEY=your_key
+ACR_ACCESS_KEY=your_key
+ACR_ACCESS_SECRET=your_secret
+TELEGRAM_BOT_TOKEN=your_token   # optional
+
+---
