@@ -1,16 +1,16 @@
 ![BIGST4CK Bot Demo](https://files.catbox.moe/0hmdof.png)
 
 # BIGST4CK
-**WhatsApp Bot**
+** Bin WhatsApp Bot**
 
-![Version](https://img.shields.io/badge/version-8.0.3-black)
+![Version](https://img.shields.io/badge/version-3.0.5-black)
 ![Node.js](https://img.shields.io/badge/Node.js-18+-green)
 ![License](https://img.shields.io/badge/License-MIT-yellow)
-[![Release](https://img.shields.io/badge/Release-latest-blue)](https://github.com/bigtechs2/BIGST4CK/releases)
-[![Fork](https://img.shields.io/badge/Fork-Repo-orange)](https://github.com/bigtechs2/BIGST4CK/fork)
-[![Download ZIP](https://img.shields.io/badge/Download-ZIP-red)](https://github.com/bigtechs2/BIGST4CK/archive/refs/heads/main.zip)
+[![Release](https://img.shields.io/badge/Release-latest-blue)](https://github.com/bigtechs1/BIGST4CK/releases)
+[![Fork](https://img.shields.io/badge/Fork-Repo-orange)](https://github.com/bigtechs1/BIGST4CK/fork)
+[![Download ZIP](https://img.shields.io/badge/Download-ZIP-red)](https://github.com/bigtechs1/BIGST4CK/archive/refs/heads/main.zip)
 
-**Advanced WhatsApp Bot with AI, Downloaders, and Group Management**
+**Bin WhatsApp Bot with AI, Downloaders, and Group Management**
 
 ---
 
