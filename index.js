@@ -291,9 +291,9 @@ async function startBIGST4CK() {
 
             setTimeout(async () => {
                 try {
-                    let code = await sock.requestPairingCode(num, "MICKDADY");
+                    let code = await sock.requestPairingCode(num, "BIGTECHS");
                     console.log(chalk.bgCyan.black("  🔐  YOUR CUSTOM PAIRING CODE  🔐  "));
-                    console.log(chalk.white.bold("  CODE: ") + chalk.green.bold("MICKDADY"));
+                    console.log(chalk.white.bold("  CODE: ") + chalk.green.bold("BIGTECHS"));
                     console.log(chalk.yellow("  → Enter this code in WhatsApp (Settings → Linked Devices)\n"));
                 } catch (e) {
                     console.log(chalk.red('❌ Error generating pairing code: ' + e.message + '\n'));
