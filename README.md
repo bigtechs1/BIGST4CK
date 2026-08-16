@@ -681,3 +681,84 @@ Contributions are welcome! Here's how you can help improve the bot.
 ## License
 
 This project is licensed under the **MIT License** – see the [LICENSE](LICENSE) file for details.
+
+----
+
+## Troubleshooting
+
+### Common Issues and Solutions
+
+**Bot won't start**
+
+| Issue | Solution |
+|-------|----------|
+| Node.js version too old | Update to Node.js 18+ |
+| Missing dependencies | Run `npm install` |
+| .env not configured | Copy `.env.example` to `.env` and fill in |
+| ffmpeg not installed | Install ffmpeg for your OS |
+
+**QR Code not showing**
+
+| Issue | Solution |
+|-------|----------|
+| Terminal doesn't support QR | Use `qrcode-terminal` |
+| Pairing code mode disabled | Enable `usePairingCode` in config |
+| Session exists | Delete `session/` folder and restart |
+
+**Session issues**
+
+| Issue | Solution |
+|-------|----------|
+| Session expired | Delete `session/` folder and restart |
+| Multiple devices connected | Unlink other devices in WhatsApp |
+| Session corrupted | Run `npm run reset-session` |
+
+**Media not downloading**
+
+| Issue | Solution |
+|-------|----------|
+| ffmpeg not installed | `sudo apt install ffmpeg -y` |
+| API timeout | Increase timeout in config |
+| API down | Try alternative APIs (fallbacks) |
+
+**Rate limit errors**
+
+| Issue | Solution |
+|-------|----------|
+| Too many requests | Increase cooldown in config |
+| Spamming commands | Wait a few seconds between commands |
+| Batch operations | Use smaller batches |
+
+**Bot not responding to commands**
+
+| Issue | Solution |
+|-------|----------|
+| Wrong prefix | Check `system.prefix` in config |
+| Command not registered | Restart the bot |
+| Permission denied | Check permissions in command file |
+
+### Logs
+
+Check logs for errors:
+
+```bash
+# View logs
+pm2 logs
+
+# Real-time logs
+tail -f logs/out.log
+```
+
+### Reset Commands
+
+| Command | Purpose |
+|---------|---------|
+| `npm run reset-session` | Reset WhatsApp session |
+| `npm run cleanup` | Clean temporary files |
+| `npm run start:fresh` | Reset session + start clean |
+
+### Still Having Issues?
+
+Contact the owner for support:
+- **[WhatsApp](https://wa.me/255777580820)**
+- **[Group Support](https://chat.whatsapp.com/EWlNm6bMYJCELwzvnmboyC)**
