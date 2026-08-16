@@ -665,5 +665,5 @@ Contributions are welcome! Here's how you can help improve the bot.
 - **Help others** learn and grow.
 
 ---
-**Thank you for contributing to BIGST4CK!** 🚀
+> Thank you for contributing to BIGST4CK! 🚀
 ---
