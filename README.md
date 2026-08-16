@@ -16,25 +16,25 @@
 
 ## Table of Contents
 
-| Section |
-|---------|
-| [Features](#features) |
-| [Prerequisites](#prerequisites) |
-| [Installation](#installation) |
-| [Configuration](#configuration) |
-| [Project Structure](#project-structure) |
-| [Commands](#commands) |
-| [Usage](#usage) |
-| [Built With](#built-with) |
-| [Contributing](#contributing) |
-| [License](#license) |
-| [Credits](#credits) |
-| [Connect](#connect) |
-| [Dependencies](#dependencies) |
-| [Troubleshooting](#troubleshooting) |
-| [Changelog](#changelog) |
-| [Roadmap](#roadmap) |
-| [Support / Donate](#support--donate) |---
+## Table of Contents
+
+- [Features](#features)
+- [Prerequisites](#prerequisites)
+- [Installation](#installation)
+- [Configuration](#configuration)
+- [Project Structure](#project-structure)
+- [Commands](#commands)
+- [Usage](#usage)
+- [Built With](#built-with)
+- [Contributing](#contributing)
+- [License](#license)
+- [Credits](#credits)
+- [Connect](#connect)
+- [Dependencies](#dependencies)
+- [Troubleshooting](#troubleshooting)
+- [Changelog](#changelog)
+- [Roadmap](#roadmap)
+- [Support / Donate](#support--donate)
 
 ---
 ## 📌 Is this bot official?
