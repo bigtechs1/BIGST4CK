@@ -282,3 +282,120 @@ BIGST4CK/
 | `main.js` | Handles messages and routes commands |
 
 ---
+
+## Creating Custom Commands
+
+Anyone can add new commands to the bot. Each command is a separate `.js` file in the `commands/` folder.
+
+### Command Template
+
+```javascript
+module.exports = {
+    name: "yourcommand",        // Main command name (required)
+    aliases: ["yc", "cmd"],     // Alternative names (optional)
+    category: "utility",        // Category for menu (optional)
+    permissions: {              // Permission flags (optional)
+        coin: 0,                // Cost in coins
+        group: false,           // Only in groups?
+        owner: false,           // Only bot owner?
+        premium: false,         // Only premium users?
+        admin: false,           // Only group admins?
+        botAdmin: false,        // Bot must be admin?
+        private: false,         // Only private chats?
+        restrict: false         // Restrictive mode?
+    },
+    code: async (ctx) => {      // Main function (required)
+        try {
+            // ── Your logic here ──
+            await ctx.reply("Command executed!");
+        } catch (error) {
+            console.error("[yourcommand] Error:", error);
+            await ctx.reply("An error occurred.");
+        }
+    }
+};
+```
+
+### Available Permissions
+
+| Permission | Description |
+|------------|-------------|
+| `coin` | Cost in coins to use the command |
+| `group` | Command only works in groups |
+| `owner` | Only the bot owner can use it |
+| `premium` | Only premium users can use it |
+| `admin` | Only group admins can use it |
+| `botAdmin` | Bot must be a group admin |
+| `private` | Only works in private chats |
+| `restrict` | Restricted mode (for safety) |
+
+### Where to Place
+
+- Save the file in the `commands/` folder.
+- File name must be the same as the command name: `yourcommand.js`.
+
+### Example: Ping Command
+
+```javascript
+// commands/ping.js
+module.exports = {
+    name: "ping",
+    aliases: ["pong"],
+    category: "information",
+
+    code: async (ctx) => {
+        const start = Date.now();
+        await ctx.reply("Pong!");
+        const latency = Date.now() - start;
+        await ctx.reply(`Latency: ${latency}ms`);
+    }
+};
+```
+
+### Best Practices
+
+- Use `try/catch` in every command to handle errors gracefully.
+- Keep commands focused – one command, one job.
+- Use `ctx.reply()` to send messages.
+- Use `ctx.used.prefix` for the current command prefix.
+- Check permissions at the start of the command.
+- Log errors for debugging.
+
+### Using AIRich in Commands
+
+For rich interactive messages:
+
+```javascript
+const { AIRich } = require('../lib/NIXCODE');
+
+module.exports = {
+    name: "example",
+    category: "utility",
+
+    code: async (ctx) => {
+        await new AIRich(ctx.core)
+            .setTitle("Rich Message")
+            .addText("This is a rich message.")
+            .addTip("Tap to interact")
+            .setFooter(config.msg.footer)
+            .send(ctx._msg.key.remoteJid);
+    }
+};
+```
+
+### Troubleshooting
+
+**Command not showing in menu**
+- Check that `category` is set.
+- Restart the bot.
+
+**Command not responding**
+- Check file name matches `name`.
+- Check for syntax errors in the file.
+- Restart the bot.
+
+**Permission errors**
+- Verify the user has the required role (owner, admin, premium).
+- Check the permissions object in the command file.
+
+---
