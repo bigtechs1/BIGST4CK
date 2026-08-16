@@ -1,6 +1,7 @@
 // commands/facebook.js
 const config = require('../config');
 const axios = require('axios');
+const { AIRich } = require('../lib/NIXCODE');
 
 const FOOTER = config.msg.footer || `© ${config.bot.name} by bigmanjtech™`;
 
@@ -95,18 +96,13 @@ ${FOOTER}`;
             return;
         }
 
-        // ─── Send video directly ──────────────────────
+        // ─── Send AIRich card with only video ──────────
         try {
-            const caption =
-`» Facebook Video
-» Title: ${videoData.title || 'Facebook Video'}
-${FOOTER}`;
-
-            await sock.sendMessage(chatId, {
-                video: { url: videoData.videoUrl },
-                mimetype: 'video/mp4',
-                caption: caption
-            }, { quoted: msg });
+            await new AIRich(sock)
+                .addVideo(videoData.videoUrl)
+                .addTip('Tap to play')
+                .setFooter(FOOTER)
+                .send(chatId, { quoted: msg });
         } catch (sendError) {
             console.error('Send error:', sendError);
             await sock.sendMessage(chatId, {
