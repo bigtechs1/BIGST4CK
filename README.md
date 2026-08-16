@@ -600,3 +600,68 @@ npm update
 ```
 
 ---
+
+## Contributing
+
+Contributions are welcome! Here's how you can help improve the bot.
+
+### How to Contribute
+
+1. **Fork** the repository
+2. **Clone** your fork
+   ```
+   git clone https://github.com/your-username/BIGST4CK.git
+   ```
+3. **Create** a feature branch
+   ```
+   git checkout -b feature/amazing-feature
+   ```
+4. **Commit** your changes
+   ```
+   git commit -m 'Add amazing feature'
+   ```
+5. **Push** to your branch
+   ```
+   git push origin feature/amazing-feature
+   ```
+6. **Open** a Pull Request
+
+### Guidelines
+
+- Use **clear commit messages**.
+- Follow the existing **code style**.
+- **Test** your changes before submitting.
+- **Document** new features or changes.
+- Update the **README** if needed.
+
+### What to Contribute
+
+- **Bug fixes** – Report or fix issues.
+- **New features** – Add useful functionality.
+- **Documentation** – Improve the README.
+- **Performance** – Optimize existing code.
+- **Translations** – Add support for more languages.
+
+### Reporting Issues
+
+- Check if the issue already exists.
+- Provide a **clear description**.
+- Include **steps to reproduce**.
+- Add **screenshots** if applicable.
+- Mention your **Node.js version** and **OS**.
+
+### Pull Request Checklist
+
+- [ ] Code follows project style
+- [ ] All tests pass
+- [ ] Documentation updated
+- [ ] No breaking changes (unless necessary)
+- [ ] Clear description of changes
+
+### Code of Conduct
+
+- Be **respectful** to other contributors.
+- **Constructive** feedback only.
+- **Help others** learn and grow.
+
+--
