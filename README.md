@@ -223,7 +223,7 @@ Key fields:
 | `api.*` | Giphy, ACRCloud keys |
 | `pterodactyl.*` | Panel URL, API key, etc. |
 
-For full structure, see `config.example.json` to config.json.
+For full structure, see `config.example.json` to `config.json`.
 
 ### .env
 
