@@ -102,8 +102,7 @@
   "mode": "whatsapp",
   "telegram": {
     "botToken": "",
-//your bot token
     "ownerId": "", 
-    "pairCode": "BIGTECHS"
+    "pairCode": "BIGTECHS" //&
   }
 }
