@@ -17,7 +17,7 @@ const PACKAGES = [
     { gb: 50, label: 'Business Pack' }
 ];
 
-// ─── Catalog context (like menu.js) ────────────────────
+// ─── Catalog context ───────
 const Catalog = {
     key: {
         remoteJid: '0@s.whatsapp.net',
