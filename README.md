@@ -472,3 +472,66 @@ or browse the [Commands](#commands) section.
 ![Main Menu](https://files.catbox.moe/cbbepj.png)
 
 ---
+
+## Built With
+
+### Core Technologies
+
+| Technology | Description |
+|------------|-------------|
+| **[Node.js](https://nodejs.org/)** | JavaScript runtime environment |
+| **[Baileys](https://github.com/WhiskeySockets/Baileys)** | WhatsApp Web API library |
+| **[@itsliaaa/baileys](https://github.com/itsliaaa/baileys)** | Enhanced Baileys fork with better features |
+
+### Libraries & Packages
+
+| Library | Purpose |
+|---------|---------|
+| `axios` | HTTP requests to APIs |
+| `chalk` | Terminal styling and colors |
+| `dotenv` | Environment variable management |
+| `fluent-ffmpeg` | Media processing and conversion |
+| `fs-extra` | Extended file system operations |
+| `moment-timezone` | Timezone handling and formatting |
+| `node-cache` | In-memory caching |
+| `pino` | Fast logging |
+| `pino-pretty` | Pretty log formatting |
+| `qrcode` | QR code generation |
+| `qrcode-terminal` | QR code display in terminal |
+| `sharp` | High-performance image processing |
+| `yt-search` | YouTube search functionality |
+| `ytdl-core` | YouTube video downloading |
+
+### Key Features Powered By
+
+| Feature | Library / API |
+|---------|---------------|
+| **AI Chat** | OpenAI API |
+| **Image Generation** | AI Imagine API |
+| **Weather** | Open-Meteo API |
+| **Geocoding** | Nominatim (OpenStreetMap) |
+| **Music Recognition** | ACRCloud API |
+| **GIFs** | Giphy API |
+| **File Uploads** | Catbox.moe API |
+| **Media Downloaders** | Nayan API, Siputzx API, ruhend-scraper |
+
+### Development Tools
+
+| Tool | Purpose |
+|------|---------|
+| **PM2** | Production process manager |
+| **Git** | Version control |
+| **npm** / **yarn** | Package management |
+
+### Built With ❤️
+
+- **Node.js** – Backend runtime
+- **Baileys** – WhatsApp connection
+- **Sharp** – Image processing
+- **FFmpeg** – Media conversion
+
+---
+
+**All libraries are open-source and free to use.** 🚀
+
+---
