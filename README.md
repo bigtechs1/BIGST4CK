@@ -14,22 +14,27 @@
 
 ---
 
-## 📌 Table of Contents
-- [Is this bot official?](##-📌-Is-this-bot-official?)
-- [Pricing](##💰Pricing)
-- [Features](##-✨-Features)
-- [Commands](##-📋-Commands)
-- [Installation](##-🚀-Installation)
-- [Configuration](##-⚙️-Configuration)
-- [Creatingcustomcmd](##-📝-Creating-Custom-Commands)
-- [Usage](##-🏃-Usage)
-- [Screenshots](##-🖼️-Screenshots)
-- [Contributing](##-👥-Contributors)
-- [Contributors](##-👥-Contributors)
-- [License](##-📄-License)
-- [Support / Contact](##-💬-Support-/-Contact)
-- [show support](##-⭐-Show-your-support)
-- [join our site for updates](##-🌠-SITE-FOR-UPDATES)
+## Table of Contents
+
+| Section |
+|---------|
+| [Features](#features) |
+| [Prerequisites](#prerequisites) |
+| [Installation](#installation) |
+| [Configuration](#configuration) |
+| [Project Structure](#project-structure) |
+| [Commands](#commands) |
+| [Usage](#usage) |
+| [Built With](#built-with) |
+| [Contributing](#contributing) |
+| [License](#license) |
+| [Credits](#credits) |
+| [Connect](#connect) |
+| [Dependencies](#dependencies) |
+| [Troubleshooting](#troubleshooting) |
+| [Changelog](#changelog) |
+| [Roadmap](#roadmap) |
+| [Support / Donate](#support--donate) |---
 
 ---
 ## 📌 Is this bot official?
