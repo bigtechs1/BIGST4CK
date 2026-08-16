@@ -41,3 +41,39 @@
 - **Settings Dashboard** – Toggle features on/off with the `.settings` command.
 - **Owner Controls** – Change prefix, update profile picture, reset group links, and more.
 - **User Registration** – Register with a username to unlock full bot features.
+
+---
+
+## Prerequisites
+
+Before installing and running the bot, make sure you have the following installed on your system:
+
+- **Node.js** – Version 18.0.0 or higher.
+  - Download from [nodejs.org](https://nodejs.org/)
+  - Check version: `node -v`
+
+- **npm** or **yarn** – Package manager for installing dependencies.
+  - npm comes with Node.js
+  - Check version: `npm -v`
+
+- **ffmpeg** – Required for media processing, audio conversion, and sticker creation.
+  - Ubuntu/Debian: `sudo apt install ffmpeg -y`
+  - Termux: `pkg install ffmpeg -y`
+  - Windows: Download from [ffmpeg.org](https://ffmpeg.org/download.html)
+  - macOS: `brew install ffmpeg`
+  - Check installation: `ffmpeg -version`
+
+- **Git** – Required for cloning the repository.
+  - Download from [git-scm.com](https://git-scm.com/downloads)
+  - Check version: `git --version`
+
+- **A code editor** – Optional but recommended.
+  - [VS Code](https://code.visualstudio.com/) is preferred.
+
+- **A WhatsApp account** – The bot will use your WhatsApp number for the session.
+
+- **API Keys** – Some features require API keys (see Configuration section).
+  - Catbox userhash (for `.url` command)
+  - Giphy API key (for GIF commands)
+  - ACRCloud credentials (for music recognition)
+  - Telegram bot token (optional, for Telegram bridge)
