@@ -1,7 +1,7 @@
 {
   "name": "BIGST4CK",
   "version": "3.0.5",
-  "description": "WhatsApp Bot - BIGST4CK",
+  "description": "Bin WhatsApp Bot - BIGST4CK",
   "main": "index.js",
   "scripts": {
     "start": "node server.js",
