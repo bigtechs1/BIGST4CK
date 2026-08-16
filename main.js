@@ -1,9 +1,9 @@
-// BIGST4CK engine a bin WhatsApp bot 
+// BIGST4CK engine a bin WhatsApp bot
 // main.js
 const config = require('./config');
 const { isOwnerOrCo } = require('./lib/auth');
 const isAdmin = require('./lib/isAdmin');
-const { isUserMuted, muteUser, unmuteUser } = require('./commands/mute');
+const { isUserMuted } = require('./commands/mute');
 const { incrementMessageCount } = require('./commands/top');
 const { handleAnticall } = require('./commands/anticall');
 const { handleMessageRevocation, storeMessage } = require('./commands/antidelete');
@@ -69,7 +69,7 @@ function buildCtx(sock, msg, text, prefix, command, args) {
 }
 
 // ─── Handle messages ────────────────────────────────────
-async function handleMessages(sock, chatUpdate) {
+async function handleMessages(sock, chatUpdate, isButton = false) {
     const msg = chatUpdate.messages[0];
     if (!msg?.message) return;
     if (msg.key.fromMe) return;
@@ -138,20 +138,20 @@ async function handleMessages(sock, chatUpdate) {
     // ─── Permission checks ────────────────────────────
     const perms = cmd.permissions || {};
     if (perms.owner && !isOwnerOrCo(senderId)) {
-        await sock.sendMessage(chatId, { text: config.msg.owner || 'Owner only.' }, { quoted: msg });
+        await sock.sendMessage(chatId, { text: config.msg?.owner || 'Owner only.' }, { quoted: msg });
         return;
     }
     if (perms.admin && chatId.endsWith('@g.us')) {
         const adminStatus = await isAdmin(sock, chatId, senderId);
         if (!adminStatus.isSenderAdmin) {
-            await sock.sendMessage(chatId, { text: config.msg.admin || 'Admins only.' }, { quoted: msg });
+            await sock.sendMessage(chatId, { text: config.msg?.admin || 'Admins only.' }, { quoted: msg });
             return;
         }
     }
     if (perms.botAdmin && chatId.endsWith('@g.us')) {
         const adminStatus = await isAdmin(sock, chatId, sock.user.id);
         if (!adminStatus.isBotAdmin) {
-            await sock.sendMessage(chatId, { text: config.msg.botAdmin || 'Bot must be admin.' }, { quoted: msg });
+            await sock.sendMessage(chatId, { text: config.msg?.botAdmin || 'Bot must be admin.' }, { quoted: msg });
             return;
         }
     }
@@ -180,47 +180,57 @@ async function handleMessages(sock, chatUpdate) {
     await showTypingAfterCommand(sock, chatId);
 }
 
-// ─── Event: messages.upsert ─────────────────────────────
-function bindEvents(sock) {
-    sock.ev.on('messages.upsert', async (chatUpdate) => {
-        const msg = chatUpdate.messages[0];
-        if (!msg) return;
-        // status broadcast handled separately
-        if (msg.key.remoteJid === 'status@broadcast') {
-            await handleAutoStatus(sock, { messages: [msg] });
-            return;
+// ─── Handle group participant update ──────────────────
+async function handleGroupParticipantUpdate(sock, update) {
+    const { id, participants, action } = update;
+    if (action === 'add') {
+        for (const participant of participants) {
+            await handleWelcomeEvent(sock, id, participant.id, participant.pushName || 'User');
         }
-        // if it's a button/list response, we need to extract the command ID if it's a command
-        // Our command handler already handles that via the prefix check, but if the button sends an ID without prefix?
-        // The menu.js uses IDs like ".menu ai" which have prefix, so the normal command processing works.
-        // For other button IDs that might not have prefix, we should process them as commands if they are in commands map.
-        // For now, we rely on the normal flow.
-        await handleMessages(sock, chatUpdate);
-    });
-
-    // ─── Group participants update ─────────────────────
-    sock.ev.on('group-participants.update', async (update) => {
-        const { id, participants, action, author } = update;
-        if (action === 'add') {
-            for (const participant of participants) {
-                await handleWelcomeEvent(sock, id, participant.id, participant.pushName || 'User');
-            }
-        } else if (action === 'remove') {
-            for (const participant of participants) {
-                await handleGoodbyeEvent(sock, id, participant.id, participant.pushName || 'User');
-            }
+    } else if (action === 'remove') {
+        for (const participant of participants) {
+            await handleGoodbyeEvent(sock, id, participant.id, participant.pushName || 'User');
         }
-    });
-
-    // ─── Call event ─────────────────────────────────────
-    sock.ev.on('call', async (callData) => {
-        await handleAnticall(sock, { call: callData });
-    });
-
-    // ─── Message revocation (antidelete) ──────────────
-    sock.ev.on('message-revoke', async (revocation) => {
-        await handleMessageRevocation(sock, revocation);
-    });
+    }
 }
 
-module.exports = { handleMessages, bindEvents };
+// ─── Handle status update ─────────────────────────────
+async function handleStatus(sock, chatUpdate) {
+    const msg = chatUpdate.messages[0];
+    if (!msg) return;
+    await handleAutoStatus(sock, { messages: [msg] });
+}
+
+// ─── Handle post-update message ──────────────────────
+async function handlePostUpdateMessage(sock) {
+    // Run any post-update tasks (like version check)
+    try {
+        const flagFile = path.join(__dirname, 'data', 'update_just_done.flag');
+        if (fs.existsSync(flagFile)) {
+            const data = JSON.parse(fs.readFileSync(flagFile, 'utf8'));
+            const elapsed = Date.now() - data.timestamp;
+            if (elapsed < 60000) {
+                // Update happened within the last minute
+                console.log('✅ Update flag detected – bot updated successfully');
+                fs.unlinkSync(flagFile);
+            }
+        }
+    } catch (err) {
+        // ignore
+    }
+}
+
+// ─── Bind events ──────────────────────────────────────
+function bindEvents(sock) {
+    // Messages are already handled in index.js – we use the exported handlers
+    // The index.js already has the messages.upsert event, so we don't need to bind here
+    // We just export the handlers for use in index.js
+}
+
+module.exports = {
+    handleMessages,
+    handleGroupParticipantUpdate,
+    handleStatus,
+    handlePostUpdateMessage,
+    bindEvents
+};
