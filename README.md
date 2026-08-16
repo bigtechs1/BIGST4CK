@@ -110,13 +110,85 @@ Before installing and running the bot, make sure you have the following installe
 
 ## Installation
 
-### Prerequisites
-- **Node.js** 18+
-- **npm** or **yarn**
-- A **WhatsApp** account
-
-### Steps
-
 **Clone the repository**
 
 - Open your terminal and run:
+  ```
+  git clone https://github.com/bigtechs2/BIGST4CK.git
+  ```
+- Navigate into the folder:
+  ```
+  cd BIGST4CK
+  ```
+
+**Install dependencies**
+
+- Run the following command to install all required packages:
+  ```
+  npm install
+  ```
+- Or if you prefer yarn:
+  ```
+  yarn install
+  ```
+
+**Install ffmpeg**
+
+- ffmpeg is required for media processing. Install it based on your operating system:
+
+- **Ubuntu / Debian**
+  ```
+  sudo apt install ffmpeg -y
+  ```
+
+- **Termux (Android)**
+  ```
+  pkg install ffmpeg -y
+  ```
+
+- **Windows**
+  - Download from [ffmpeg.org](https://ffmpeg.org/download.html)
+  - Add to system PATH
+
+- **macOS**
+  ```
+  brew install ffmpeg
+  ```
+
+- Verify the installation:
+  ```
+  ffmpeg -version
+  ```
+
+**Configure environment**
+
+- Copy the example environment file:
+  ```
+  cp .env.example .env
+  ```
+- Open `.env` in your code editor and fill in:
+  - Owner phone number
+  - API keys (if needed)
+  - Bot name and prefix
+
+**Start the bot**
+
+- Start the bot normally:
+  ```
+  npm start
+  ```
+- For better performance and lower memory usage:
+  ```
+  npm run start:optimized
+  ```
+
+**Pairing**
+
+- After starting, scan the QR code shown in the terminal using:
+  - WhatsApp → Settings → Linked Devices → Link a Device
+- If pairing code is enabled, you will receive a code to enter instead
+
+**Verify**
+
+- Once connected, you will see `✅ BIGST4CK Online!` in the terminal
+- Test the bot with commands like `.menu` or `.ping`
