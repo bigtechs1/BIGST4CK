@@ -6,7 +6,7 @@ const FOOTER = config.msg.footer || `© ${config.bot.name} by bigmanjtech™`;
 
 // ─── Configuration ──────────────────────────────────────
 const PRICE_PER_GB = 1000;
-const PAYMENT_NUMBER = '0615944741';
+const PAYMENT_NUMBER = '0636756591';
 const BANNER_URL = 'https://files.catbox.moe/ljabyq.png';
 
 const PACKAGES = [
