@@ -1,7 +1,7 @@
 ![BIGST4CK Bot Demo](https://files.catbox.moe/0hmdof.png)
 
 # BIGST4CK
-** Bin WhatsApp Bot**
+**Bin WhatsApp Bot**
 
 ![Version](https://img.shields.io/badge/version-3.0.5-black)
 ![Node.js](https://img.shields.io/badge/Node.js-18+-green)
