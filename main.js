@@ -1,4 +1,4 @@
-// BIGST4CK engine 
+// BIGST4CK engine a bin WhatsApp bot 
 // main.js
 const config = require('./config');
 const { isOwnerOrCo } = require('./lib/auth');
