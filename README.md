@@ -1,6 +1,6 @@
 # ⚡ BIGST4CK WhatsApp Bot
 
-<p align="all">
+<p align="full">
   <img src="https://files.catbox.moe/0hmdof.png" alt="BIGST4CK" width="200"/>
 </p>
 
