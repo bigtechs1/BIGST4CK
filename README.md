@@ -663,9 +663,9 @@ Contributions are welcome! Here's how you can help improve the bot.
 - Be **respectful** to other contributors.
 - **Constructive** feedback only.
 - **Help others** learn and grow.
-
----
 > Thank you for contributing to BIGST4CK! 🚀
+----
+
 ---
 
 ## Contributors
@@ -682,7 +682,7 @@ Contributions are welcome! Here's how you can help improve the bot.
 
 This project is licensed under the **MIT License** – see the [LICENSE](LICENSE) file for details.
 
-----
+---
 
 ## Troubleshooting
 
@@ -760,5 +760,40 @@ tail -f logs/out.log
 ### Still Having Issues?
 
 Contact the owner for support:
-- **[WhatsApp](https://wa.me/255777580820)**
-- **[Group Support](https://chat.whatsapp.com/EWlNm6bMYJCELwzvnmboyC)**
+
+---
+
+## Support / Contact
+
+| Name | Contact |
+|------|---------|
+| **[bigtechs1](https://wa.me/255777580820)** | WhatsApp |
+| **[bigtechs2](https://wa.me/255636756591)** | WhatsApp |
+| **[bigtechs3](https://wa.me/255705517165)** | WhatsApp |
+| **[BIGST4CK family](https://chat.whatsapp.com/EWlNm6bMYJCELwzvnmboyC)** | WhatsApp Group |
+| **[bigmanjtech™](mailto:bigmanj.tech@gmail.com)** | Email |
+|**[BIGST4CK updates](https://whatsapp.com/channel/0029VbDJJY19WtC1T0Vgqp0v)** |WhatsApp channel 
+---
+## Show your support
+
+If you like this project, please give it a ⭐ on GitHub – it helps others discover it!
+
+---
+
+## SITE FOR UPDATES
+
+### 📢 **BIGST4CK Family Group**
+
+> Welcome to the **BIGST4CK Family Group**! 🚀 This is the official WhatsApp group for users, developers, and enthusiasts of the BIGST4CK brand. Share your experiences, ask questions, report bugs, suggest new features, and connect with the team and other users.
+
+**[Join Group](https://chat.whatsapp.com/EWlNm6bMYJCELwzvnmboyC)**
+
+---
+
+### 📢 **BIGST4CK Updates Channel**
+
+> 📢 The official broadcast channel for **BIGST4CK**. Get the latest news, updates, new features, release notes, and important announcements. Stay informed and never miss an update!
+
+**[Join WhatsApp Channel](https://whatsapp.com/channel/0029VbDJJY19WtC1T0Vgqp0v)**
+
+built by bigmanjtech™ with ♥︎
