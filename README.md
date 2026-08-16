@@ -241,3 +241,44 @@ TELEGRAM_BOT_TOKEN=your_token   # optional
 ```
 
 ---
+
+## Project Structure
+
+```
+BIGST4CK/
+├── commands/          # All bot commands (.js files)
+├── data/              # JSON data (warnings, settings, configs)
+├── lib/               # Core libraries (NIXCODE, auth, isAdmin)
+├── session/           # WhatsApp authentication session
+├── tmp/               # Temporary media files (auto-cleaned)
+├── config.json        # Main bot configuration
+├── config.js          # Config loader with helper methods
+├── .env               # Environment variables (API keys, tokens)
+├── .env.example       # Example environment file
+├── index.js           # Entry point – starts the bot
+├── main.js            # Message handler and command router
+├── package.json       # Dependencies and scripts
+└── README.md          # Documentation
+```
+
+### Folder Details
+
+| Folder | Purpose |
+|--------|---------|
+| `commands/` | All command files – each file is one command |
+| `data/` | JSON storage for warnings, settings, user data |
+| `lib/` | Core libraries – NIXCODE, auth, isAdmin, store |
+| `session/` | WhatsApp session files (auto-generated) |
+| `tmp/` | Temporary media files (auto-cleaned) |
+
+### Key Files
+
+| File | Purpose |
+|------|---------|
+| `config.json` | Main bot settings (name, prefix, owner, API) |
+| `config.js` | Loads config, adds `isOwnerOrCo` helper |
+| `.env` | Sensitive data – API keys, tokens |
+| `index.js` | Entry point – connects to WhatsApp |
+| `main.js` | Handles messages and routes commands |
+
+---
