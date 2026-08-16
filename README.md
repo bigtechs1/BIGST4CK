@@ -1,166 +1,273 @@
-<p align="center">
-  <img src="https://files.catbox.moe/0hmdof.png" alt="BIGST4CK" width="100%"/>
-</p>
+![BIGST4CK Bot Demo](https://files.catbox.moe/0hmdof.png)
 
-## Table of Contents
+# BIGST4CK
+**WhatsApp Bot**
 
-| Section | Description |
-|---------|-------------|
-| [Features](#-features) | Overview of bot capabilities |
-| [Prerequisites](#-prerequisites) | Required software and tools |
-| [Installation](#-installation) | Step-by-step setup guide |
-| [Configuration](#-configuration) | Config files and environment variables |
-| [Project Structure](#-project-structure) | Folder and file layout |
-| [Commands](#-commands) | Full command list with categories |
-| [Usage](#-usage) | How to start and run the bot |
-| [Built With](#-built-with) | Technologies and libraries used |
-| [Contributing](#-contributing) | How to contribute to the project |
-| [License](#-license) | License information |
-| [Credits](#-credits) | Developer and contributors |
-| [Connect](#-connect) | WhatsApp channel, group, and GitHub |
-| [Dependencies](#-dependencies) | Full list of dependencies |
-| [Troubleshooting](#-troubleshooting) | Common issues and solutions |
-| [Changelog](#-changelog) | Version history |
-| [Roadmap](#-roadmap) | Planned features (optional) |
-| [Support / Donate](#-support--donate) | Support the developer (optional) |
+![Version](https://img.shields.io/badge/version-8.0.3-black)
+![Node.js](https://img.shields.io/badge/Node.js-18+-green)
+![License](https://img.shields.io/badge/License-MIT-yellow)
+[![Release](https://img.shields.io/badge/Release-latest-blue)](https://github.com/bigtechs2/BIGST4CK/releases)
+[![Fork](https://img.shields.io/badge/Fork-Repo-orange)](https://github.com/bigtechs2/BIGST4CK/fork)
+[![Download ZIP](https://img.shields.io/badge/Download-ZIP-red)](https://github.com/bigtechs2/BIGST4CK/archive/refs/heads/main.zip)
+
+**Advanced WhatsApp Bot with AI, Downloaders, and Group Management**
 
 ---
 
-## Features
+## 📌 Table of Contents
+- [Is this bot official?](##-📌-Is-this-bot-official?)
+- [Pricing](##💰Pricing)
+- [Features](##-✨-Features)
+- [Commands](##-📋-Commands)
+- [Installation](##-🚀-Installation)
+- [Configuration](##-⚙️-Configuration)
+- [Creatingcustomcmd](##-📝-Creating-Custom-Commands)
+- [Usage](##-🏃-Usage)
+- [Screenshots](##-🖼️-Screenshots)
+- [Contributing](##-👥-Contributors)
+- [Contributors](##-👥-Contributors)
+- [License](##-📄-License)
+- [Support / Contact](##-💬-Support-/-Contact)
+- [show support](##-⭐-Show-your-support)
+- [join our site for updates](##-🌠-SITE-FOR-UPDATES)
 
-- **Interactive Messages** – Buttons, lists, carousels, and rich cards powered by NIXCODE.
-- **Group Management** – Kick, promote, demote, mute, warn, and auto-kick after 3 warnings.
-- **Media Downloaders** – Download videos and audio from TikTok, Instagram, Facebook, and YouTube.
-- **AI Features** – AI chatbot and AI image generation.
-- **Security** – Antilink, antimention, anticall, and antidelete to protect groups.
-- **Auto Features** – Autoread, autotyping, and autostatus for automated responses.
-- **Welcome & Goodbye** – Customisable welcome and goodbye messages with images and group description.
-- **Server Store** – Pterodactyl server plans with prices and images.
-- **System Monitoring** – Ping, uptime, RAM, CPU usage, and server status.
-- **Self-Update** – Update the bot directly from GitHub with one command.
-- **Settings Dashboard** – Toggle features on/off with the `.settings` command.
-- **Owner Controls** – Change prefix, update profile picture, reset group links, and more.
-- **User Registration** – Register with a username to unlock full bot features.
+---
+## 📌 Is this bot official?
+
+**Yes and no.**  
+This bot is developed and maintained by **bigmanj tech ™** – it is **officially supported** by the author, but it is **not an official WhatsApp product**. It is a community project that uses the WhatsApp Web protocol (via Baileys) to provide an automated assistant. **Use it responsibly** and comply with WhatsApp’s Terms of Service.
+
+> 💡 **Advice from the author:**  
+> Always keep your bot updated, avoid spamming, and respect group admins. This bot is free and open‑source – if you like it, consider ⭐ starring the repo and sharing it with friends!,for updates [join our site for updates](## 🌠 SITE FOR UPDATES)
 
 ---
 
-## Prerequisites
+## 💰Pricing
 
-Before installing and running the bot, make sure you have the following installed on your system:
+The source code is **free** and open source. However, if you want me to host and maintain the bot for you:
 
-- **Node.js** – Version 18.0.0 or higher.
-  - Download from [nodejs.org](https://nodejs.org/)
-  - Check version: `node -v`
+| Service | Price (TZS) | Description |
+| :--- | :--- | :--- |
+| Bot Hosting (Monthly) | 5,000 | I host the bot 24/7 for you |
+| Premium Access (Monthly) | 1,000 | Unlock all premium features |
+| Custom Commands | 500 | I add custom commands for your group |
+| Donation | Any amount | Support the project ❤️ |
 
-- **npm** or **yarn** – Package manager for installing dependencies.
-  - npm comes with Node.js
-  - Check version: `npm -v`
-
-- **ffmpeg** – Required for media processing, audio conversion, and sticker creation.
-  - Ubuntu/Debian: `sudo apt install ffmpeg -y`
-  - Termux: `pkg install ffmpeg -y`
-  - Windows: Download from [ffmpeg.org](https://ffmpeg.org/download.html)
-  - macOS: `brew install ffmpeg`
-  - Check installation: `ffmpeg -version`
-
-- **Git** – Required for cloning the repository.
-  - Download from [git-scm.com](https://git-scm.com/downloads)
-  - Check version: `git --version`
-
-- **A code editor** – Optional but recommended.
-  - [VS Code](https://code.visualstudio.com/) is preferred.
-
-- **A WhatsApp account** – The bot will use your WhatsApp number for the session.
-
-- **API Keys** – Some features require API keys (see Configuration section).
-  - Catbox userhash (for `.url` command)
-  - Giphy API key (for GIF commands)
-  - ACRCloud credentials (for music recognition)
-  - Telegram bot token (optional, for Telegram bridge)
+**Contact:** [owner](https://wa.me//255777580820)
 
 ---
 
-## Installation
+## ✨ Features
 
-**Clone the repository**
+- 🤖 **AI Chat** – ChatGPT, DeepSeek, Gemini, Claude, Meta AI
+- 🎵 **Downloaders** – YouTube, Spotify, Facebook, TikTok, Instagram
+- 👥 **Group Management** – Anti-bot, Warn, Kick, Promote, Demote, Mute
+- 🎨 **Rich UI** – AIRich messages, interactive buttons, booking cards
+- 📊 **User Status** – Level, coins, badges, uptime tracking
+- 🔧 **Custom Commands** – Add/edit commands on-the-fly with `.addcmd`
 
-- Open your terminal and run:
-  ```
-  git clone https://github.com/bigtechs1/BIGST4CK.git
-  ```
-- Navigate into the folder:
-  ```
-  cd BIGST4CK
-  ```
+---
 
-**Install dependencies**
+## 📋 Commands
 
-- Run the following command to install all required packages:
-  ```
-  npm install
-  ```
-- Or if you prefer yarn:
-  ```
-  yarn install
-  ```
+| Category | Commands |
+|----------|----------|
+| **AI Chat** | `.chatgpt`, `.deepseek`, `.gemini`, `.claude`, `.meta`, `.unlimitedai`, `.publicai` |
+| **Downloader** | `.play`, `.facebookdl`, `.ytmp3`, `.ytmp4`, `.tiktokdl`, `.instagramdl` |
+| **Group** | `.antibot`, `.warn`, `.kick`, `.promote`, `.demote`, `.mute`, `.setoption` |
+| **Information** | `.about`, `.status`, `.uptime`, `.owner`, `.bizinfo` |
+| **Owner** | `.addcmd`, `.reload`, `.setprefix`, `.run` |
+| **Tools** | `.banana`, `.table`, `.weather`, `.poll` |
 
-**Install ffmpeg**
+> Use `.menu` to open the interactive main menu.
 
-- ffmpeg is required for media processing. Install it based on your operating system:
+---
 
-- **Ubuntu / Debian**
-  ```
-  sudo apt install ffmpeg -y
-  ```
+## 🚀 Installation
 
-- **Termux (Android)**
-  ```
-  pkg install ffmpeg -y
-  ```
+### Prerequisites
+- **Node.js** 18+
+- **npm** or **yarn**
+- A **WhatsApp** account
 
-- **Windows**
-  - Download from [ffmpeg.org](https://ffmpeg.org/download.html)
-  - Add to system PATH
+### Steps
 
-- **macOS**
-  ```
-  brew install ffmpeg
-  ```
+```bash
+# 1. Clone the repository
+git clone https://github.com/your-username/BIGST4CK.git
+cd BIGST4CK
 
-- Verify the installation:
-  ```
-  ffmpeg -version
-  ```
+# 2. Install dependencies
+npm install
 
-**Configure environment**
+# 3. Copy and configure the example config
+cp config.example.json config.json
+```
+---
 
-- Copy the example environment file:
-  ```
-  cp .env.example .env
-  ```
-- Open `.env` in your code editor and fill in:
-  - Owner phone number
-  - API keys (if needed)
-  - Bot name and prefix
+## ⚙️ Configuration
 
-**Start the bot**
+Edit `config.example.json` with your details:
+rename `config.example.json` to `config.json`
 
-- Start the bot normally:
-  ```
-  npm start
-  ```
-- For better performance and lower memory usage:
-  ```
-  npm run start:optimized
-  ```
+```json
+{
+  "bot": {
+    "name": "BIGST4CK",
+    "phoneNumber": "255705517165",
+    "thumbnail": "https://files.catbox.moe/yryprc.jpg",
+    "groupjid" : ""
+    "groupLink": "https://chat.whatsapp.com/EWlNm6bMYJCELwzvnmboyC"
+    "channellink": "https://whatsapp.com/channel/0029VbDJJY19WtC1T0Vgqp0v"
+  },
+  "system": {
+    "prefix": ".",
+    "usePairingCode": true,
+    "customPairingCode": "BIGTECHS",
+    "timeZone": "Africa/Tanzania"
+  },
+  "owner": {
+    "name": "bigmanjtech™",
+    "id": "255636756591"
+  }
+}
+```
 
-**Pairing**
+| Key | Description |
+|-----|-------------|
+| `bot.phoneNumber` | Your WhatsApp number (international format) |
+| `system.prefix` | Command prefix (default: `.`) |
+| `system.usePairingCode` | Use pairing code instead of QR scan |
 
-- After starting, scan the QR code shown in the terminal using:
-  - WhatsApp → Settings → Linked Devices → Link a Device
-- If pairing code is enabled, you will receive a code to enter instead
+---
 
-**Verify**
+## 📝 Creating Custom Commands
 
-- Once connected, you will see `✅ BIGST4CK Online!` in the terminal
-- Test the bot with commands like `.menu` or `.ping`
+Anyone can add new commands to the bot. Use the template below to create your own command.
+
+### 📋 Command Template
+
+```javascript
+module.exports = {
+    name: "yourcommand",        // Main command name (required)
+    aliases: ["yc", "cmd"],     // Alternative names (optional)
+    category: "yourcategory",   // Folder name (optional)
+    permissions: {              // Permission flags (optional)
+        coin: 0,                // Cost in coins
+        group: false,           // Only in groups?
+        owner: false,           // Only bot owner?
+        premium: false,         // Only premium users?
+        admin: false,           // Only group admins?
+        botAdmin: false,        // Bot must be admin?
+        private: false,         // Only private chats?
+        restrict: false         // Restrictive mode?
+    },
+    code: async (ctx) => {      // Main function (required)
+        try {
+            // ── Your logic here ──
+            await ctx.reply("✅ Command executed!");
+        } catch (error) {
+            console.error("[yourcommand] Error:", error);
+            await ctx.reply("❌ An error occurred.");
+        }
+    }
+};
+```
+---
+
+## 🏃 Usage
+
+### Start the Bot
+
+```bash
+npm start
+```
+
+### Development Mode
+
+```bash
+npm run dev
+```
+
+### With PM2
+
+```bash
+npm run start:pm2
+pm2 logs
+```
+
+Once running, scan the QR code or use the pairing code to connect your WhatsApp account.
+
+---
+
+## 🖼️ Screenshots
+
+![BIGST4CK Bot Demo](https://files.catbox.moe/cbbepj.png)
+
+---
+
+## 🤝 Contributing
+
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
+   
+Contributions, issues, and feature requests are welcome!
+Feel free to check the issues page or open a pull request.
+
+
+---
+
+## 👥 Contributors
+
+| Name | Role |
+|------|------|
+| **bigmanjtech™** | Founder & Lead Developer |
+| **bigtechs1** | Contributor |
+| **bigtechs2** | Contributor |
+
+
+---
+
+## 📄 License
+
+This project is licensed under the **MIT License** – see the [LICENSE](LICENSE) file for details.
+
+---
+
+## 💬 Support / Contact
+
+| Name | Contact |
+|------|---------|
+| **[bigtechs1](https://wa.me/255777580820)** | WhatsApp |
+| **[bigtechs2](https://wa.me/255636756591)** | WhatsApp |
+| **[bigtechs3](https://wa.me/255705517165)** | WhatsApp |
+| **[BIGST4CK family](https://chat.whatsapp.com/EWlNm6bMYJCELwzvnmboyC)** | WhatsApp Group |
+| **[bigmanjtech™](mailto:bigmanj.tech@gmail.com)** | Email |
+|**[BIGST4CK updates](https://whatsapp.com/channel/0029VbDJJY19WtC1T0Vgqp0v)** |WhatsApp channel 
+---
+## ⭐ Show your support
+
+If you like this project, please give it a ⭐ on GitHub – it helps others discover it!
+
+---
+
+## 🌠 SITE FOR UPDATES
+
+### 📢 **BIGST4CK Family Group**
+
+> Welcome to the **BIGST4CK Family Group**! 🚀 This is the official WhatsApp group for users, developers, and enthusiasts of the BIGST4CK brand. Share your experiences, ask questions, report bugs, suggest new features, and connect with the team and other users.
+
+**[Join Group](https://chat.whatsapp.com/EWlNm6bMYJCELwzvnmboyC)**
+
+---
+
+### 📢 **BIGST4CK Updates Channel**
+
+> 📢 The official broadcast channel for **BIGST4CK**. Get the latest news, updates, new features, release notes, and important announcements. Stay informed and never miss an update!
+
+**[Join WhatsApp Channel](https://whatsapp.com/channel/0029VbDJJY19WtC1T0Vgqp0v)**
+
+built by bigmanjtech™ with ♥︎
