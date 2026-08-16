@@ -137,7 +137,7 @@ function formatFileSize(bytes) {
 // ─── Main command ─────────────────────────────────────────
 module.exports = {
     name: "url",
-    aliases: ["upload", "catbox"],
+    aliases: ["upload", "catbox", "tourl"],
     category: "tools",
 
     code: async (ctx) => {
