@@ -1,11 +1,11 @@
-// commands/mute.js that comprises of mute and unmute command 
+// commands/mute.js
 const config = require('../config');
 const isAdmin = require('../lib/isAdmin');
 const { isOwnerOrCo } = require('../lib/auth');
 const fs = require('fs');
 const path = require('path');
 
-const FOOTER = config.msg.footer || `© ${config.bot.name} by bigmanjtech™`;
+const FOOTER = config.msg?.footer || `© ${config.bot?.name || 'BIGST4CK'} by bigmanjtech™`;
 const DATA_DIR = path.join(__dirname, '../data');
 const MUTE_FILE = path.join(DATA_DIR, 'user_mute.json');
 
@@ -72,7 +72,7 @@ async function setGroupSetting(sock, groupId, setting) {
 // ─── Combined Command ─────────────────────────────────────
 module.exports = {
     name: "mute",
-    aliases: ["m", "unmute"],   // .unmute is an alias, but we detect it internally
+    aliases: ["m", "unmute"],
     category: "group",
 
     code: async (ctx) => {
@@ -112,10 +112,9 @@ module.exports = {
         }
 
         // ─── Determine action (mute or unmute) ──────────
-        const isUnmute = ctx.used.command === 'unmute' || 
+        const isUnmute = ctx.used.command === 'unmute' ||
                          (args.length > 0 && args[0].toLowerCase() === 'unmute');
 
-        // Remove the "unmute" keyword from args if present
         const cleanArgs = isUnmute && args.length > 0 && args[0].toLowerCase() === 'unmute'
             ? args.slice(1)
             : args;
@@ -126,7 +125,6 @@ module.exports = {
         // ─── Parse duration and target ──────────────────
         if (cleanArgs.length > 0 && /^\d+$/.test(cleanArgs[0]) && parseInt(cleanArgs[0]) > 0) {
             durationMinutes = parseInt(cleanArgs[0]);
-            // look for mention in remaining args
             const restArgs = cleanArgs.slice(1);
             const mentionedJids = msg.message?.extendedTextMessage?.contextInfo?.mentionedJid || [];
             if (mentionedJids.length > 0) {
@@ -141,7 +139,6 @@ module.exports = {
                 }
             }
         } else {
-            // No duration: check mention or reply
             const mentionedJids = msg.message?.extendedTextMessage?.contextInfo?.mentionedJid || [];
             if (mentionedJids.length > 0) {
                 targetUser = mentionedJids[0];
@@ -160,9 +157,7 @@ module.exports = {
 
         // ─── Execute mute or unmute ─────────────────────
         if (targetUser) {
-            // ─── User-level action ──────────────────────
             if (isUnmute) {
-                // Unmute user
                 if (!isUserMuted(chatId, targetUser)) {
                     await sock.sendMessage(chatId, {
                         text: `» @${targetUser.split('@')[0]} is not muted.`,
@@ -177,7 +172,6 @@ module.exports = {
                     mentions: [targetUser]
                 }, { quoted: msg });
             } else {
-                // Mute user
                 if (isUserMuted(chatId, targetUser)) {
                     await sock.sendMessage(chatId, {
                         text: `» @${targetUser.split('@')[0]} is already muted.`,
@@ -200,9 +194,7 @@ module.exports = {
                 }, { quoted: msg });
             }
         } else {
-            // ─── Group-level action ──────────────────────
             if (isUnmute) {
-                // Unmute group (allow all to send)
                 const success = await setGroupSetting(sock, chatId, 'not_announcement');
                 if (!success) {
                     await sock.sendMessage(chatId, {
@@ -213,7 +205,6 @@ module.exports = {
                 const reply = `» Group Unmuted\n\n› All members can now send messages.\n${FOOTER}`;
                 await sock.sendMessage(chatId, { text: reply }, { quoted: msg });
             } else {
-                // Mute group (only admins can send)
                 const success = await setGroupSetting(sock, chatId, 'announcement');
                 if (!success) {
                     await sock.sendMessage(chatId, {
