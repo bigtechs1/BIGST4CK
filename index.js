@@ -4,7 +4,7 @@
  */
 
 require("dotenv").config();
-const config = require("./config");          // Load config.json
+const config = require("./config");
 const fs = require('fs');
 const chalk = require('chalk');
 const pino = require("pino");
@@ -23,7 +23,6 @@ const { handleMessages, handleGroupParticipantUpdate, handleStatus, handlePostUp
 const { handleAnticall } = require("./commands/anticall");
 const { getButtonId, isButtonResponse, autoDetectButtonCommand, isCommandId } = require("./lib/buttonLoader");
 const store = require("./lib/lightweight_store");
-const { startTelegramBot } = require("./telegram-bot");
 
 // ─── Import NIXCODE builders ──────────────────────
 const { Button, ButtonV2, AIRich, Carousel } = require("./lib/NIXCODE");
@@ -173,7 +172,7 @@ async function startBIGST4CK() {
                     await handleStatus(sock, chatUpdate);
                     return;
                 }
-                
+
                 await handleMessages(sock, chatUpdate, true);
             } catch (err) {
                 if (!err.message?.includes("No session found") && 
@@ -318,7 +317,16 @@ async function initializeBot() {
     const startupMode = await chooseStartupMode();
     if (startupMode === 'telegram') {
         console.log(chalk.bgBlue.white("\n  🚀  STARTING TELEGRAM BOT  🚀  \n"));
-        startTelegramBot();
+        try {
+            // Conditionally require the Telegram bot module only when needed
+            const { startTelegramBot } = require("./telegram-bot");
+            startTelegramBot();
+        } catch (err) {
+            console.error(chalk.bgRed.white("  ❌  TELEGRAM MODULE ERROR  ❌  "));
+            console.error(chalk.red(`Error: ${err.message}`));
+            console.error(chalk.yellow("Please install the required package: npm install node-telegram-bot-api"));
+            process.exit(1);
+        }
     } else {
         console.log(chalk.bgBlue.white("\n  🚀  STARTING WHATSAPP CONNECTION  🚀  \n"));
         startBIGST4CK();
