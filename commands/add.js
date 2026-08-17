@@ -1,87 +1,32 @@
 // commands/add.js
 const config = require('../config');
 const isAdmin = require('../lib/isAdmin');
-
+const FOOTER = config.footer || `© ${config.botName}`;
 module.exports = {
-    name: "add",
-    aliases: ["adduser", "invite"],
-    category: "group",
-
+    name: "add", aliases: ["adduser", "invite"], category: "group",
     code: async (ctx) => {
-        const sock = ctx.core;
-        const chatId = ctx._msg.key.remoteJid;
-        const senderId = ctx._msg.key.participant || ctx._msg.key.remoteJid;
-        const text = ctx.used.args.join(' ') || '';
-        const message = ctx._msg;
-
-        // ─── Only groups ──────────────────────────────
-        const isGroup = chatId.endsWith('@g.us');
-        if (!isGroup) {
-            await sock.sendMessage(chatId, {
-                text: `» This command can only be used in groups.`
-            }, { quoted: message });
-            return;
-        }
-
-        // ─── Admin check ──────────────────────────────
+        const sock = ctx.core, chatId = ctx._msg.key.remoteJid, msg = ctx._msg, senderId = ctx.sender.jid, args = ctx.used.args || [], prefix = ctx.used.prefix || '.';
+        if (!chatId.endsWith('@g.us')) { await sock.sendMessage(chatId, { text: `» This command only works in groups.` }, { quoted: msg }); return; }
         const adminStatus = await isAdmin(sock, chatId, senderId);
-        if (!adminStatus.isSenderAdmin) {
-            await sock.sendMessage(chatId, {
-                text: `» Only group admins can add members.`
-            }, { quoted: message });
-            return;
-        }
-        if (!adminStatus.isBotAdmin) {
-            await sock.sendMessage(chatId, {
-                text: `» Bot must be an admin to add members.`
-            }, { quoted: message });
-            return;
-        }
-
-        // ─── Parse phone number ──────────────────────
-        const phoneNumber = text.trim();
-        if (!phoneNumber) {
-            await sock.sendMessage(chatId, {
-                text: `› Usage: .add <phone_number>\n› Example: .add 255612130873`
-            }, { quoted: message });
-            return;
-        }
-
-        const cleanNumber = phoneNumber.replace(/[\s\-+()]/g, '');
-        if (!/^\d+$/.test(cleanNumber) || cleanNumber.length < 10) {
-            await sock.sendMessage(chatId, {
-                text: `› Invalid number. Use country code + digits.\n› Example: .add 255612130873`
-            }, { quoted: message });
-            return;
-        }
-
-        const finalNumber = cleanNumber.startsWith('+') ? cleanNumber.slice(1) : cleanNumber;
+        if (!adminStatus.isSenderAdmin) { await sock.sendMessage(chatId, { text: `» Only group admins can add members.` }, { quoted: msg }); return; }
+        if (!adminStatus.isBotAdmin) { await sock.sendMessage(chatId, { text: `» Bot must be an admin to add members.` }, { quoted: msg }); return; }
+        const number = args[0]?.trim();
+        if (!number) { await sock.sendMessage(chatId, { text: `» Usage: ${prefix}add <phone_number>\n› Example: ${prefix}add 255612130873` }, { quoted: msg }); return; }
+        const clean = number.replace(/[\s\-+()]/g, '');
+        if (!/^\d+$/.test(clean) || clean.length < 10) { await sock.sendMessage(chatId, { text: `» Invalid number. Use country code + digits.` }, { quoted: msg }); return; }
+        const finalNumber = clean.startsWith('+') ? clean.slice(1) : clean;
         const memberId = `${finalNumber}@s.whatsapp.net`;
-
-        // ─── Try to add ──────────────────────────────
         try {
             await sock.groupParticipantsUpdate(chatId, [memberId], 'add');
-
-            // ─── Success response ──────────────────────
-            await sock.sendMessage(chatId, {
-                text: `» Successfully added +${finalNumber} to the group.`
-            }, { quoted: message });
-
-        } catch (addError) {
-            const errorMsg = addError?.message?.toLowerCase() || '';
+            await sock.sendMessage(chatId, { text: `» Successfully added +${finalNumber} to the group.\n${FOOTER}` }, { quoted: msg });
+        } catch (e) {
+            const errMsg = e?.message?.toLowerCase() || '';
             let reply = `» Failed to add +${finalNumber}.`;
-
-            if (errorMsg.includes('already') || errorMsg.includes('member')) {
-                reply = `» +${finalNumber} is already a member.`;
-            } else if (errorMsg.includes('invalid') || errorMsg.includes('not found')) {
-                reply = `» Number +${finalNumber} is not registered on WhatsApp.`;
-            } else if (errorMsg.includes('permission')) {
-                reply = `» Bot lacks permission to add members. Check group settings.`;
-            } else {
-                reply += `\n› ${addError?.message || 'Unknown error'}`;
-            }
-
-            await sock.sendMessage(chatId, { text: reply }, { quoted: message });
+            if (errMsg.includes('already') || errMsg.includes('member')) reply = `» +${finalNumber} is already a member.`;
+            else if (errMsg.includes('invalid') || errMsg.includes('not found')) reply = `» Number +${finalNumber} is not registered on WhatsApp.`;
+            else if (errMsg.includes('permission')) reply = `» Bot lacks permission. Check group settings.`;
+            else reply += `\n› ${e.message || 'Unknown error'}`;
+            await sock.sendMessage(chatId, { text: reply + `\n${FOOTER}` }, { quoted: msg });
         }
     }
 };
