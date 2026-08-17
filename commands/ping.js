@@ -3,7 +3,7 @@ const config = require('../config');
 const { AIRich } = require('../lib/NIXCODE');
 const os = require('os');
 
-const FOOTER = config.msg.footer || `© ${config.bot.name}`;
+const FOOTER = config.footer || `© ${config.botName}`;
 
 function fmtRam(bytes) {
     const mb = bytes / 1024 / 1024;
@@ -49,7 +49,7 @@ module.exports = {
         const cpuLabel = cpuPercent < 30 ? 'Idle' : cpuPercent < 60 ? 'Normal' : 'Busy';
 
         // ─── Profile Picture ──────────────────────────────
-        let ppUrl = config.bot.thumbnail || 'https://files.catbox.moe/0hmdof.png';
+        let ppUrl = config.thumbnail || 'https://files.catbox.moe/0hmdof.png';
         try {
             const botJid = sock.user.id.split(':')[0] + '@s.whatsapp.net';
             ppUrl = await sock.profilePictureUrl(botJid, 'image') || ppUrl;
@@ -58,11 +58,11 @@ module.exports = {
         // ─── AIRich Card ──────────────────────────────────
         await new AIRich(sock)
             .addProduct({
-                title: config.bot.name,
+                title: config.botName,
                 brand: 'System Monitor',
                 price: `${latency} ms`,
                 sale_price: pingLabel,
-                product_url: config.bot.groupLink || 'https://wa.me',
+                product_url: config.groupLink || 'https://wa.me',
                 image_url: ppUrl,
                 icon_url: ppUrl
             })
